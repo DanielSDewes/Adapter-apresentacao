@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 237 83% 21%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 237 66% 53%;
+
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 28 92% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 92%;
+    --input: 215 20% 92%;
+    --ring: 237 83% 21%;
+
+    --code-bg: 0 0% 95%;
+    --code-text: 0 0% 13%;
+    --code-keyword: 0 0% 0%;
+    --code-class: 0 60% 40%;
+    --code-comment: 120 73% 35%;
+    --code-string: 120 73% 35%;
+
+    --radius: 1rem;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(237 83% 21%), hsl(237 66% 53%));
+    --gradient-accent: linear-gradient(135deg, hsl(28 92% 58%), hsl(20 90% 48%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(215 30% 98%));
+    
+    --shadow-sm: 0 1px 2px 0 hsl(215 20% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 20% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(215 20% 15% / 0.1);
+    --shadow-glow: 0 0 40px hsl(237 66% 53% / 0.15);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 237 66% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 237 83% 65%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 28 92% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 237 66% 53%;
+    
+    --code-bg: 0 0% 15%;
+    --code-text: 0 0% 96%;
+    --code-keyword: 0 0% 100%;
+    --code-class: 20 90% 68%;
+    --code-comment: 120 73% 65%;
+    --code-string: 120 73% 65%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(237 66% 53%), hsl(237 83% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(28 92% 58%), hsl(20 90% 68%));
+    --gradient-subtle: linear-gradient(180deg, hsl(222 47% 6%), hsl(222 47% 8%));
+    
+    --shadow-glow: 0 0 40px hsl(237 66% 53% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, hsl(var(--muted)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--muted)) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  .prose {
+    @apply text-foreground/90;
+  }
+  
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply text-foreground font-bold;
+  }
+  
+  .prose strong {
+    @apply text-foreground font-semibold;
+  }
+  
+  .prose a {
+    @apply text-primary hover:underline transition-colors;
+  }
+  
+  .prose code {
+    @apply bg-muted text-foreground px-1.5 py-0.5 rounded text-sm font-mono border border-border;
+  }
+}
+
+@media print {
+  body {
+    @apply text-black bg-white;
+  }
+  
+  nav {
+    display: none !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  section {
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+  
+  pre {
+    page-break-inside: avoid;
+    border: 1px solid #ddd;
+    padding: 1rem;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  .prose {
+    max-width: 100%;
+  }
+}
